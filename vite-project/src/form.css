@@ -1,0 +1,17 @@
+.submit-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+hr {
+    width: 85%;
+}
+
+.submit-arrow {
+    background-color: hsl(259, 100%, 65%);
+    border-radius: 50px;
+    padding: 20px;
+    width: 30px;
+    height: 30px;
+}
