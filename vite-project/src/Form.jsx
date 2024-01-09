@@ -1,24 +1,44 @@
+import { useState } from "react";
 import "./form.css";
 
 function Form() {
+  const [dob, setDob] = useState({});
+
+  const handleFieldChange = (event) => {
+    setDob({...dob, [event.target.name]: event.target.value});
+  }
+
+  const calculateAge = () => {
+    const dobConcatenated = `${dob['year-input']}-${dob['month-input']}-${dob['day-input']}`;
+    console.log(dobConcatenated)
+    console.log(typeof dobConcatenated);
+
+    const currentDate = new Date();
+    console.log(currentDate);
+
+    // console.log(Math.abs(currentDate - dobConcatenated));
+  }
+
   return (
     <>
       <form>
         <div className="input-div">
           <label htmlFor="day-input">DAY</label>
-          <input type="datetime" name="day-input" placeholder="DD" maxLength="2" />
+          <input type="datetime" name="day-input" placeholder="DD" maxLength="2"onChange={handleFieldChange} />
         </div>
   
         <div className="input-div">
           <label htmlFor="month-input">MONTH</label>
-          <input type="datetime" name="month-input" placeholder="MM" maxLength="2" />
+          <input type="datetime" name="month-input" placeholder="MM" maxLength="2" onChange={handleFieldChange} />
         </div>
   
         <div className="input-div">
           <label htmlFor="year-input">YEAR</label>
-          <input type="datetime" name="year-input" placeholder="YYYY" maxLength="4" />
+          <input type="datetime" name="year-input" placeholder="YYYY" maxLength="4" onChange={handleFieldChange} />
         </div>
       </form>
+
+      <button onClick={() => calculateAge()}>Calculate age</button>
 
       <div className="submit-wrapper">
         <hr className="horizonal-line"/>
