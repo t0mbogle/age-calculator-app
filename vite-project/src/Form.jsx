@@ -3,7 +3,7 @@ import "./form.css";
 
 function Form() {
   const [dob, setDob] = useState({});
-  console.log(dob);
+  const [age, setAge] = useState({});
 
   const handleFieldChange = (event) => {
     setDob({...dob, [event.target.name]: event.target.value});
@@ -22,6 +22,12 @@ function Form() {
     const days = Math.floor(((ageInMs % YEAR_IN_MS) % MONTH_IN_MS) / DAY_IN_MS);
 
     console.log(`${years} years, ${months} months, ${days} days`);
+
+    setAge({
+      years: years,
+      months: months,
+      days: days,
+    })
   }
 
   return (
@@ -43,11 +49,19 @@ function Form() {
         </div>
       </form>
 
-      <button onClick={() => calculateAge()}>Calculate age</button>
-
       <div className="submit-wrapper">
-        <hr className="horizonal-line"/>
-        <svg className="submit-arrow" xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44"><g fill="none" stroke="#FFF" strokeWidth="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg>
+        <hr />
+        <svg 
+          className="submit-arrow"
+          onClick={() => calculateAge()}
+          xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44"><g fill="none" stroke="#FFF" strokeWidth="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g>
+        </svg>
+      </div>
+
+      <div className="age-wrapper">
+        <p>{`${age.years} years`}</p>
+        <p>{`${age.months} months`}</p>
+        <p>{`${age.days} days`}</p>
       </div>
     
       {/* <div className="attribution">
