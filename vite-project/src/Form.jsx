@@ -3,20 +3,25 @@ import "./form.css";
 
 function Form() {
   const [dob, setDob] = useState({});
+  console.log(dob);
 
   const handleFieldChange = (event) => {
     setDob({...dob, [event.target.name]: event.target.value});
   }
 
   const calculateAge = () => {
-    const dobConcatenated = `${dob['year-input']}-${dob['month-input']}-${dob['day-input']}`;
-    console.log(dobConcatenated)
-    console.log(typeof dobConcatenated);
+    const YEAR_IN_MS = (365.25 * 24 * 60 * 60 * 1000); // Average year length 365.25, accounting for leap years
+    const MONTH_IN_MS = (30.44 * 24 * 60 * 60 * 1000); // Average month length 30.44
+    const DAY_IN_MS = 86400000;
 
-    const currentDate = new Date();
-    console.log(currentDate);
+    const now = new Date();
+    const ageInMs = Math.abs(now - new Date(`${dob['year-input']}/${dob['month-input']}/${dob['day-input']}`));
 
-    // console.log(Math.abs(currentDate - dobConcatenated));
+    const years = Math.floor(ageInMs / YEAR_IN_MS);
+    const months = Math.floor((ageInMs % YEAR_IN_MS) / MONTH_IN_MS);
+    const days = Math.floor(((ageInMs % YEAR_IN_MS) % MONTH_IN_MS) / DAY_IN_MS);
+
+    console.log(`${years} years, ${months} months, ${days} days`);
   }
 
   return (
