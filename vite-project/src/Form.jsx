@@ -2,6 +2,10 @@ import { useState } from "react";
 import "./form.css";
 
 function Form() {
+  const YEAR_IN_MS = (365.25 * 24 * 60 * 60 * 1000); // Average year length 365.25, accounting for leap years
+  const MONTH_IN_MS = (30.44 * 24 * 60 * 60 * 1000); // Average month length 30.44
+  const DAY_IN_MS = 86400000;
+
   const [dob, setDob] = useState({});
   const [age, setAge] = useState({});
 
@@ -10,10 +14,6 @@ function Form() {
   }
 
   const calculateAge = () => {
-    const YEAR_IN_MS = (365.25 * 24 * 60 * 60 * 1000); // Average year length 365.25, accounting for leap years
-    const MONTH_IN_MS = (30.44 * 24 * 60 * 60 * 1000); // Average month length 30.44
-    const DAY_IN_MS = 86400000;
-
     const now = new Date();
     const ageInMs = Math.abs(now - new Date(`${dob['year-input']}/${dob['month-input']}/${dob['day-input']}`));
 
@@ -21,13 +21,7 @@ function Form() {
     const months = Math.floor((ageInMs % YEAR_IN_MS) / MONTH_IN_MS);
     const days = Math.floor(((ageInMs % YEAR_IN_MS) % MONTH_IN_MS) / DAY_IN_MS);
 
-    console.log(`${years} years, ${months} months, ${days} days`);
-
-    setAge({
-      years: years,
-      months: months,
-      days: days,
-    })
+    setAge({ years: years, months: months, days: days })
   }
 
   return (
