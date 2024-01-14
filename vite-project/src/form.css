@@ -21,7 +21,7 @@ input {
     align-items: center;
 }
 hr {
-    width: 85%;
+    width: 100%;
 }
 .submit-arrow {
     background-color: hsl(259, 100%, 65%);
@@ -38,6 +38,10 @@ hr {
 .age-wrapper > p {
     font-weight: 800;
     font-style: italic;
-    font-size: 48px;
+    font-size: 44px;
     margin: 0;
+}
+.age-result {
+    color: hsl(259, 100%, 65%);
+    margin-right: 10px;
 }
