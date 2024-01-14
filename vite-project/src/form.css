@@ -4,8 +4,7 @@
 
 form {
     display: flex;
-    justify-content: space-evenly;
-    margin: 2%;
+    justify-content: space-between;
 }
 
 .input-div {

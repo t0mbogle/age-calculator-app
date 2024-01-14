@@ -1,0 +1,10 @@
+html {
+    background-color: hsl(0, 0%, 94%);
+}
+
+#root {
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 5% 5% 25% 5%;
+    padding: 10% 5% 10% 5%;
+    margin: 10px;
+}
