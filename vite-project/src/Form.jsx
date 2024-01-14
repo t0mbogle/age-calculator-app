@@ -21,6 +21,8 @@ function Form() {
     const months = Math.floor((ageInMs % YEAR_IN_MS) / MONTH_IN_MS);
     const days = Math.floor(((ageInMs % YEAR_IN_MS) % MONTH_IN_MS) / DAY_IN_MS);
 
+    console.log((ageInMs % YEAR_IN_MS) / MONTH_IN_MS);
+    console.log(({ years: years, months: months, days: days }));
     setAge({ years: years, months: months, days: days })
   }
 
@@ -53,9 +55,9 @@ function Form() {
       </div>
 
       <div className="age-wrapper">
-        <p>{`${age.years} years`}</p>
-        <p>{`${age.months} months`}</p>
-        <p>{`${age.days} days`}</p>
+        <p>{age.years !== undefined ? `${age.years} years` : `-- years`}</p>
+        <p>{age.months !== undefined ? `${age.months} months` : `-- months`}</p>
+        <p>{age.days !== undefined ? `${age.days} days` : `-- days`}</p>
       </div>
     
       {/* <div className="attribution">

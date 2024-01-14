@@ -1,3 +1,7 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 form {
     display: flex;
     justify-content: space-evenly;
@@ -11,20 +15,30 @@ input {
     width: 75%;
 }
 
+/* button */
 .submit-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 hr {
     width: 85%;
 }
-
 .submit-arrow {
     background-color: hsl(259, 100%, 65%);
     border-radius: 50px;
     padding: 20px;
     width: 30px;
     height: 30px;
+}
+
+/* age results */
+.age-wrapper {
+    justify-content: center;
+}
+.age-wrapper > p {
+    font-weight: 800;
+    font-style: italic;
+    font-size: 48px;
+    margin: 0;
 }
