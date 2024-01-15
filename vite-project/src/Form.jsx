@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./form.css";
+import validateDob from "./utils/validateDob";
 
 function Form() {
   const YEAR_IN_MS = (365.25 * 24 * 60 * 60 * 1000); // Average year length 365.25, accounting for leap years
@@ -9,20 +10,21 @@ function Form() {
   const [dob, setDob] = useState({});
   const [age, setAge] = useState({});
 
+
   const handleFieldChange = (event) => {
     setDob({...dob, [event.target.name]: event.target.value});
   }
 
   const calculateAge = () => {
+    validateDob(dob);
+
     const now = new Date();
-    const ageInMs = Math.abs(now - new Date(`${dob['year-input']}/${dob['month-input']}/${dob['day-input']}`));
+    const ageInMs = Math.abs(now - new Date(`${dob['years']}/${dob['months']}/${dob['days']}`));
 
     const years = Math.floor(ageInMs / YEAR_IN_MS);
     const months = Math.floor((ageInMs % YEAR_IN_MS) / MONTH_IN_MS);
     const days = Math.floor(((ageInMs % YEAR_IN_MS) % MONTH_IN_MS) / DAY_IN_MS);
 
-    console.log((ageInMs % YEAR_IN_MS) / MONTH_IN_MS);
-    console.log(({ years: years, months: months, days: days }));
     setAge({ years: years, months: months, days: days })
   }
 
@@ -31,17 +33,17 @@ function Form() {
       <form>
         <div className="input-div">
           <label htmlFor="day-input">DAY</label>
-          <input type="datetime" name="day-input" placeholder="DD" maxLength="2"onChange={handleFieldChange} />
+          <input type="datetime" name="days" placeholder="DD" maxLength="2"onChange={handleFieldChange} />
         </div>
   
         <div className="input-div">
           <label htmlFor="month-input">MONTH</label>
-          <input type="datetime" name="month-input" placeholder="MM" maxLength="2" onChange={handleFieldChange} />
+          <input type="datetime" name="months" placeholder="MM" maxLength="2" onChange={handleFieldChange} />
         </div>
   
         <div className="input-div">
           <label htmlFor="year-input">YEAR</label>
-          <input type="datetime" name="year-input" placeholder="YYYY" maxLength="4" onChange={handleFieldChange} />
+          <input type="datetime" name="years" placeholder="YYYY" maxLength="4" onChange={handleFieldChange} />
         </div>
       </form>
 
