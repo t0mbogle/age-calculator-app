@@ -19,7 +19,7 @@ function Form() {
     validateDob(dob);
 
     const now = new Date();
-    const ageInMs = Math.abs(now - new Date(`${dob['years']}/${dob['months']}/${dob['days']}`));
+    const ageInMs = Math.abs(now - new Date(`${dob.years}/${dob.months}/${dob.days}`));
 
     const years = Math.floor(ageInMs / YEAR_IN_MS);
     const months = Math.floor((ageInMs % YEAR_IN_MS) / MONTH_IN_MS);
