@@ -1,4 +1,4 @@
-const validateDob = (dob) => {
+const validateDob = (now, dob) => {
     dob.days = Number(dob.days);
     dob.months = Number(dob.months);
     dob.years = Number(dob.years);
@@ -20,16 +20,8 @@ const validateDob = (dob) => {
     if ((!errors.months) && ((dob.months - 1) > 11 || isNaN(dob.months))) {
         errors.months = 'Must be a valid month';
     }
-
     // CHECK FOR FUTURE DATE
-    const now = new Date();
-    now.setHours(0, 0, 0, 0);
-    // set now to have the same HH/MM/SS as the entered dob
     const ageInMs = (now - new Date(`${dob.years}/${dob.months}/${dob.days}`));
-    // console.log(ageInMs);
-    // console.log(typeof ageInMs);
-    // console.log(ageInMs <);
-
     if ((!errors.years) && isNaN(dob.years)) {
         errors.years = 'Must be a valid year';
     } else if ((!errors.years) && ageInMs < 0) {

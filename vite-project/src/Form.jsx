@@ -16,9 +16,11 @@ function Form() {
   }
 
   const calculateAge = () => {
-    validateDob(dob);
-
     const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    // set now to have the same HH/MM/SS/MS as the entered dob
+    validateDob(now, dob);
+
     const ageInMs = Math.abs(now - new Date(`${dob.years}/${dob.months}/${dob.days}`));
 
     const years = Math.floor(ageInMs / YEAR_IN_MS);
