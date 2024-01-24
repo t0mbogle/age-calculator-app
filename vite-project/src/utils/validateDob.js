@@ -20,15 +20,12 @@ const validateDob = (now, dob) => {
         errors.months = 'Must be a valid month';
     }
     // CHECK FOR FUTURE DATE
-    const ageInMs = (now - new Date(`${dob.years}/${dob.months}/${dob.days}`));
-    if ((!errors.years) && isNaN(dob.years)) {
-        errors.years = 'Must be a valid year';
-    } else if ((!errors.years) && ageInMs < 0) {
+    const dateObject = new Date(dob.years, (dob.months - 1), dob.days);
+    if ((!errors.years) && (dateObject.getFullYear() > now.getFullYear() || isNaN(dateObject.getFullYear()))) {
         errors.years = 'Must be in the past';
     }
 
     // VALID DATE IN THE PAST
-    const dateObject = new Date(dob.years, (dob.months - 1), dob.days);
     if ((!errors.days) && (dateObject.getFullYear() != dob.years || dateObject.getMonth() !== (dob.months - 1) || dateObject.getDate() != dob.days)) {
         errors.days = 'Must be a valid date';
         errors.months = '';
