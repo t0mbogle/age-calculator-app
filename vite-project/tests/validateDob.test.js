@@ -19,6 +19,20 @@ describe('validation on dob input', () => {
 
         expect(errors).toEqual(dobResponse);
     })
-    xtest('invalid entries', () => {})
-    xtest('', () => {})
+
+    test('invalid entries', () => {
+        const dob = { days: 98, months: 14, years: 2177 }
+        const dobResponse = validateDob(now, dob);
+        const errors = {days: 'Must be a valid day', months: 'Must be a valid month', years: 'Must be in the past'};
+
+        expect(errors).toEqual(dobResponse);
+    })
+
+    test('future date', () => {
+        const dob = { days: 20, months: 4, years: 2050 }
+        const dobResponse = validateDob(now, dob);
+        const errors = {days: '', months: '', years: 'Must be in the past'};
+
+        expect(errors).toEqual(dobResponse);
+    })
 })
