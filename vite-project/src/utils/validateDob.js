@@ -3,12 +3,11 @@ const validateDob = (now, dob) => {
     dob.months = Number(dob.months);
     dob.years = Number(dob.years);
 
-    const DOB_INPUT_KEYS = ['days', 'months', 'years'];
     let errors = {days: '', months: '', years: ''};
 
     // EMPTY ENTRIES
-    for (const key of DOB_INPUT_KEYS) {
-        if (!Object.prototype.hasOwnProperty.call(dob, key)) {
+    for (const [key] of Object.entries(dob)) {
+        if (!dob[key]) {
             errors[key] = 'This field is required';
         }
     }
@@ -35,6 +34,7 @@ const validateDob = (now, dob) => {
         errors.months = '';
         errors.years = '';
     }
+    console.log(errors);
     return errors;
 }
 
