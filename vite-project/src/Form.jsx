@@ -10,15 +10,13 @@ function Form() {
   const [dob, setDob] = useState({});
   const [age, setAge] = useState({});
 
-
   const handleFieldChange = (event) => {
     setDob({...dob, [event.target.name]: event.target.value});
   }
 
   const calculateAge = () => {
     const now = new Date();
-    now.setHours(0, 0, 0, 0);
-    // set now to have the same HH/MM/SS/MS as the entered dob
+    now.setHours(0, 0, 0, 0); // now HH/MM/SS/MS is equal to dob
     validateDob(now, dob);
 
     const ageInMs = Math.abs(now - new Date(`${dob.years}/${dob.months}/${dob.days}`));
