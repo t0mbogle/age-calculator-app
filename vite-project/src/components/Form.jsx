@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "./form.css";
-import validateDob from "./utils/validateDob";
+import "../styles/form.css";
+import validateDob from "../utils/validateDob";
 
 function Form() {
   const YEAR_IN_MS = (365.25 * 24 * 60 * 60 * 1000); // Average year length 365.25, accounting for leap years
