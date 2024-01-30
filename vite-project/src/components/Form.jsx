@@ -57,9 +57,9 @@ function Form() {
       </div>
 
       <div className="age-wrapper">
-        <p><span className="age-result">{age.years !== undefined ? age.years : '--'}</span>{'years'}</p>
-        <p><span className="age-result">{age.months !== undefined ? age.months : '--'}</span>{'months'}</p>
-        <p><span className="age-result">{age.days !== undefined ? age.days : '--'}</span>{'days'}</p>
+        <p><span className="age-result">{age.years ? age.years : '--'}</span>{'years'}</p>
+        <p><span className="age-result">{age.months ? age.months : '--'}</span>{'months'}</p>
+        <p><span className="age-result">{age.days ? age.days : '--'}</span>{'days'}</p>
       </div>
     
       {/* <div className="attribution">
