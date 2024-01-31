@@ -3,10 +3,16 @@ import "../styles/form.css";
 import validateDob from "../utils/validateDob";
 
 function Form() {
-  const YEAR_IN_MS = (365.25 * 24 * 60 * 60 * 1000); // Average year length 365.25, accounting for leap years
-  const MONTH_IN_MS = (30.44 * 24 * 60 * 60 * 1000); // Average month length 30.44
+  const YEAR_IN_MS = (365.25 * 24 * 60 * 60 * 1000);
+  const MONTH_IN_MS = (30.44 * 24 * 60 * 60 * 1000);
   const DAY_IN_MS = 86400000;
 
+  const initialState = {
+    hasError: false,
+    errors: {days: '', months: '', years: ''}
+}
+
+  const [alert, setAlert] = useState(initialState);
   const [dob, setDob] = useState({});
   const [age, setAge] = useState({});
 
@@ -17,7 +23,14 @@ function Form() {
   const calculateAge = () => {
     const now = new Date();
     now.setHours(0, 0, 0, 0); // now HH/MM/SS/MS is equal to dob
-    validateDob(now, dob);
+    const isValid = validateDob(now, dob);
+
+    if (isValid !== initialState.errors) {
+      setAlert({
+        hasError: true,
+        errors: isValid
+      })
+    }
 
     const ageInMs = Math.abs(now - new Date(`${dob.years}/${dob.months}/${dob.days}`));
 
@@ -45,6 +58,8 @@ function Form() {
           <label htmlFor="year-input">YEAR</label>
           <input type="datetime" name="years" placeholder="YYYY" maxLength="4" onChange={handleFieldChange} />
         </div>
+        {alert.hasError ? JSON.stringify(alert.errors) : null}
+
       </form>
 
       <div className="submit-wrapper">
