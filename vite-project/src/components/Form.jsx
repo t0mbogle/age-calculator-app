@@ -45,21 +45,33 @@ function Form() {
     <>
       <form>
         <div className="input-div">
-          <label htmlFor="day-input">DAY</label>
-          <input type="datetime" name="days" placeholder="DD" maxLength="2"onChange={handleFieldChange} />
+          <label
+            className={alert.hasError ? "input-label errors" : "input-label"} 
+            htmlFor="day-input">
+              DAY
+          </label>
+          <input 
+            className={alert.hasError ? "input-entry input-entry-errors" : "input-entry"} 
+            type="datetime" 
+            name="days" 
+            placeholder="DD" 
+            maxLength="2" 
+            onChange={handleFieldChange} 
+          />
+          {alert.hasError && <p className="form-errors">{alert.errors.days}</p>}
         </div>
   
         <div className="input-div">
           <label htmlFor="month-input">MONTH</label>
           <input type="datetime" name="months" placeholder="MM" maxLength="2" onChange={handleFieldChange} />
+          {alert.hasError && <p className="form-errors">{alert.errors.months}</p>}
         </div>
   
         <div className="input-div">
           <label htmlFor="year-input">YEAR</label>
           <input type="datetime" name="years" placeholder="YYYY" maxLength="4" onChange={handleFieldChange} />
+          {alert.hasError && <p className="form-errors">{alert.errors.years}</p>}
         </div>
-        {alert.hasError ? JSON.stringify(alert.errors) : null}
-
       </form>
 
       <div className="submit-wrapper">
