@@ -10,7 +10,7 @@ function Form() {
   const initialState = {
     hasError: false,
     errors: {days: '', months: '', years: ''}
-}
+  }
 
   const [alert, setAlert] = useState(initialState);
   const [dob, setDob] = useState({});
@@ -25,11 +25,13 @@ function Form() {
     now.setHours(0, 0, 0, 0); // now HH/MM/SS/MS is equal to dob
     const isValid = validateDob(now, dob);
 
-    if (isValid !== initialState.errors) {
+    if (JSON.stringify(isValid) !== JSON.stringify(initialState.errors)) {
       setAlert({
         hasError: true,
         errors: isValid
       })
+    } else {
+      setAlert(initialState);
     }
 
     const ageInMs = Math.abs(now - new Date(`${dob.years}/${dob.months}/${dob.days}`));
