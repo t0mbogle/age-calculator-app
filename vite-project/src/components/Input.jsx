@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import "../styles/input.css";
 
 function Input({ label, name, placeholder, length, onChange, alert }) {
     let error = alert.errors[name];
@@ -6,15 +7,15 @@ function Input({ label, name, placeholder, length, onChange, alert }) {
     return (
         <div className="input-div">
           <label
-            className={alert.hasError ? "input-label errors" : "input-label"} 
+            className={alert.hasError ? "input-label label-error" : "input-label"} 
             htmlFor={name + "-input"}>
               {label}
           </label>
           <input 
-            className={alert.hasError ? "input-entry input-entry-errors" : "input-entry"} 
+            className={alert.hasError ? "input-entry input-error" : "input-entry"} 
             type="datetime" name={name} placeholder={placeholder} maxLength={length} onChange={onChange}
           />
-          {alert.hasError && <p className="form-errors">{error}</p>}
+          {alert.hasError && <p className="text-error">{error}</p>}
         </div>
     );
 }

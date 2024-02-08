@@ -1,0 +1,26 @@
+.input-div {
+    width: 30%;
+}
+.input-label {
+    color: hsl(0, 1%, 44%);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+.input-entry {
+    width: 78%;
+    padding: 10px;
+    margin: 0;
+    border: solid 1px hsl(0, 0%, 86%);
+    border-radius: 5px;
+}
+.label-error {
+    color: hsl(0, 100%, 67%);
+}
+.input-error {
+    border: solid 1px hsl(0, 100%, 67%);
+}
+.text-error {
+    font-style: italic;
+    font-size: 8px;
+    color: hsl(0, 100%, 67%);
+}
