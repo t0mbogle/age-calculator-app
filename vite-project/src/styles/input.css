@@ -13,6 +13,7 @@
     margin: 0;
     border: solid 1px hsl(0, 0%, 86%);
     border-radius: 5px;
+    outline: none;
 }
 .label-error {
     color: hsl(0, 100%, 67%);

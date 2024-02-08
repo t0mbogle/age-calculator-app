@@ -13,7 +13,7 @@ function Input({ label, name, placeholder, length, onChange, alert }) {
           </label>
           <input 
             className={alert.hasError ? "input-entry input-error" : "input-entry"} 
-            type="datetime" name={name} placeholder={placeholder} maxLength={length} onChange={onChange}
+            type="datetime" autoComplete="off" name={name} placeholder={placeholder} maxLength={length} onChange={onChange}
           />
           {alert.hasError && <p className="text-error">{error}</p>}
         </div>
