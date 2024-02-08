@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/form.css";
 import validateDob from "../utils/validateDob";
+import Input from "./Input";
 
 function Form() {
   const YEAR_IN_MS = (365.25 * 24 * 60 * 60 * 1000);
@@ -46,44 +47,9 @@ function Form() {
   return (
     <>
       <form>
-        <div className="input-div">
-          <label
-            className={alert.hasError ? "input-label errors" : "input-label"} 
-            htmlFor="day-input">
-              DAY
-          </label>
-          <input 
-            className={alert.hasError ? "input-entry input-entry-errors" : "input-entry"} 
-            type="datetime" name="days" placeholder="DD" maxLength="2" onChange={handleFieldChange}
-          />
-          {alert.hasError && <p className="form-errors">{alert.errors.days}</p>}
-        </div>
-  
-        <div className="input-div">
-          <label
-            className={alert.hasError ? "input-label errors" : "input-label"}
-            htmlFor="month-input">
-              MONTH
-          </label>
-          <input 
-            className={alert.hasError ? "input-entry input-entry-errors" : "input-entry"}
-            type="datetime" name="months" placeholder="MM" maxLength="2" onChange={handleFieldChange} 
-          />
-          {alert.hasError && <p className="form-errors">{alert.errors.months}</p>}
-        </div>
-  
-        <div className="input-div">
-          <label
-            className={alert.hasError ? "input-label errors" : "input-label"}
-            htmlFor="year-input">
-              YEAR
-          </label>
-          <input
-            className={alert.hasError ? "input-entry input-entry-errors" : "input-entry"}
-            type="datetime" name="years" placeholder="YYYY" maxLength="4" onChange={handleFieldChange} 
-          />
-          {alert.hasError && <p className="form-errors">{alert.errors.years}</p>}
-        </div>
+        <Input label="DAY" name="days" placeholder="DD" length="2" onChange={handleFieldChange} alert={alert} />
+        <Input label="MONTH" name="months" placeholder="MM" length="2" onChange={handleFieldChange} alert={alert} />
+        <Input label="YEAR" name="years" placeholder="YYYY" length="4" onChange={handleFieldChange} alert={alert} />
       </form>
 
       <div className="submit-wrapper">
@@ -100,11 +66,6 @@ function Form() {
         <p><span className="age-result">{age.months ? age.months : '--'}</span>{'months'}</p>
         <p><span className="age-result">{age.days ? age.days : '--'}</span>{'days'}</p>
       </div>
-    
-      {/* <div className="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>. 
-        Coded by <a href="#">Your Name Here</a>.
-      </div> */}
     </>
   );
 }
