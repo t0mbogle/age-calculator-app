@@ -62,9 +62,9 @@ function Form() {
       </div>
 
       <div className="age-wrapper">
-        <p><span className="age-result">{age.years ? age.years : '--'}</span>{'years'}</p>
-        <p><span className="age-result">{age.months ? age.months : '--'}</span>{'months'}</p>
-        <p><span className="age-result">{age.days ? age.days : '--'}</span>{'days'}</p>
+        <p><span className="age-result">{!alert.hasError && age.years ? age.years : '--'}</span>{'years'}</p>
+        <p><span className="age-result">{!alert.hasError && age.months ? age.months : '--'}</span>{'months'}</p>
+        <p><span className="age-result">{!alert.hasError && age.days ? age.days : '--'}</span>{'days'}</p>
       </div>
     </>
   );
