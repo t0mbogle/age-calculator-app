@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 
-
 function AnimateNumber({ value }) {
   const [currentValue, setCurrentValue] = useState(0);
   
@@ -10,33 +9,31 @@ function AnimateNumber({ value }) {
   }
 
   useEffect(() => {
-      const animationDuration = 1800;
-      const framesPerSecond = 60;
-      let elapsedTime = 0;
+    const animationDuration = 1800;
+    const framesPerSecond = 60;
+    let elapsedTime = 0;
 
-     const interval = setInterval(() => {
-          elapsedTime += 1000 / framesPerSecond;
-          const progress = elapsedTime / animationDuration;
-          const easedProgress = ease(progress);
+    const interval = setInterval(() => {
+      elapsedTime += 1000 / framesPerSecond;
+      const progress = elapsedTime / animationDuration;
+      const easedProgress = ease(progress);
 
-         const newValue = Math.floor(easedProgress * value);
-
-         if (elapsedTime >= animationDuration) {
-              setCurrentValue(value);
-              clearInterval(interval);
-          } else {
-              setCurrentValue(newValue);
-          }
-      }, 1800 / framesPerSecond);
+      const newValue = Math.floor(easedProgress * value);
+      
+      if (elapsedTime >= animationDuration) {
+           setCurrentValue(value);
+           clearInterval(interval);
+      } else {
+        setCurrentValue(newValue);
+      }  
+    }, 1800 / framesPerSecond);
 
      return () => clearInterval(interval);
   }, [value]);
 
-    return (
-        <>
-          {currentValue}
-        </>
-    );
+  return (
+      <>{currentValue}</>
+  );
 }
 
 AnimateNumber.propTypes = {

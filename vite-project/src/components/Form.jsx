@@ -67,8 +67,6 @@ function Form() {
         <p><span className="age-result">{!alert.hasError && age.months ? <AnimateNumber value={age.months} /> : '--'}</span>{'months'}</p>
         <p><span className="age-result">{!alert.hasError && age.days ? <AnimateNumber value={age.days} /> : '--'}</span>{'days'}</p>
       </div>
-
-      {/* <AnimateNumber value={age.days} /> */}
     </>
   );
 }
