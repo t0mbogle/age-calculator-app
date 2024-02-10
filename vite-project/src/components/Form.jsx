@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../styles/form.css";
 import validateDob from "../utils/validateDob";
 import Input from "./Input";
+import AnimateNumber from "./AnimateNumber";
 
 function Form() {
   const YEAR_IN_MS = (365.25 * 24 * 60 * 60 * 1000);
@@ -62,10 +63,12 @@ function Form() {
       </div>
 
       <div className="age-wrapper">
-        <p><span className="age-result">{!alert.hasError && age.years ? age.years : '--'}</span>{'years'}</p>
-        <p><span className="age-result">{!alert.hasError && age.months ? age.months : '--'}</span>{'months'}</p>
-        <p><span className="age-result">{!alert.hasError && age.days ? age.days : '--'}</span>{'days'}</p>
+        <p><span className="age-result">{!alert.hasError && age.years ? <AnimateNumber value={age.years} /> : '--'}</span>{'years'}</p>
+        <p><span className="age-result">{!alert.hasError && age.months ? <AnimateNumber value={age.months} /> : '--'}</span>{'months'}</p>
+        <p><span className="age-result">{!alert.hasError && age.days ? <AnimateNumber value={age.days} /> : '--'}</span>{'days'}</p>
       </div>
+
+      {/* <AnimateNumber value={age.days} /> */}
     </>
   );
 }

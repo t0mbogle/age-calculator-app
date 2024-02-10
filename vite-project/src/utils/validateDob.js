@@ -31,7 +31,7 @@ const validateDob = (now, dob) => {
         errors.months = '';
         errors.years = '';
     }
-    console.log(errors);
+    
     return errors;
 }
 
