@@ -47,3 +47,18 @@ hr {
     color: hsl(259, 100%, 65%);
     margin-right: 10px;
 }
+
+@media only screen and (min-width: 768px) {
+    .submit-wrapper {
+        display: flex;
+        flex-direction: row-reverse;
+        /* margin-left: 10px; */
+    }
+    hr {
+        margin-top: 12px;
+        width: 84%;
+    }
+    .submit-arrow:hover {
+        background-color: hsl(0, 0%, 8%);
+    }
+}

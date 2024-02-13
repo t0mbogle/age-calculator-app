@@ -1,5 +1,7 @@
 .input-div {
     width: 31%;
+    display: flex;
+    flex-direction: column;
 }
 .input-label {
     color: hsl(0, 1%, 44%);
