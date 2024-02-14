@@ -57,10 +57,11 @@ hr {
     .submit-wrapper {
         display: flex;
         flex-direction: row-reverse;
+        margin-top: 0;
     }
     hr {
         margin-top: 12px;
-        width: 59%;
+        width: 55%;
     }
 
     .submit-arrow {

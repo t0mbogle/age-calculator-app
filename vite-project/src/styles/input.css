@@ -40,11 +40,12 @@
     .input-entry {
         font-size: 28px;
         margin-top: 5px;
+        caret-color: hsl(259, 100%, 65%);
     }
     .input-entry:focus {
         border: solid 1px hsl(259, 100%, 65%);
     }
-
-
-    /* edit error font size */
+    .text-error {
+        font-size: 12px;
+    }
 }

@@ -1,6 +1,9 @@
 html {
     background-color: hsl(0, 0%, 94%);
 }
+body {
+    margin: 0 auto;
+}
 
 #root {
     background-color: hsl(0, 0%, 100%);
@@ -11,9 +14,9 @@ html {
 
 @media only screen and (min-width: 768px) {
     #root {
-        margin: 15vh 25vh 0vh 25vh;
+        margin: 12vh 20vw 0% 20vw;
         padding: 50px;
         border-radius: 20px 20px 150px 20px;
-        width: 60%;
+        width: 55%;
     }
 }
