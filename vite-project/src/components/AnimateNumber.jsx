@@ -9,7 +9,7 @@ function AnimateNumber({ value }) {
   }
 
   useEffect(() => {
-    const animationDuration = 1800;
+    const animationDuration = 1250;
     const framesPerSecond = 60;
     let elapsedTime = 0;
 
@@ -26,7 +26,7 @@ function AnimateNumber({ value }) {
       } else {
         setCurrentValue(newValue);
       }  
-    }, 1800 / framesPerSecond);
+    }, 1250 / framesPerSecond);
 
      return () => clearInterval(interval);
   }, [value]);

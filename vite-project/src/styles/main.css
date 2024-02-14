@@ -4,7 +4,16 @@ html {
 
 #root {
     background-color: hsl(0, 0%, 100%);
-    border-radius: 5% 5% 25% 5%;
+    border-radius: 20px 20px 100px 20px;
     padding: 10% 7% 10% 7%;
     margin: 75px 5px 0px 5px;
+}
+
+@media only screen and (min-width: 768px) {
+    #root {
+        margin: 15vh 25vh 0vh 25vh;
+        padding: 50px;
+        border-radius: 20px 20px 150px 20px;
+        width: 60%;
+    }
 }

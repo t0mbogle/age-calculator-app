@@ -20,7 +20,7 @@ hr {
     padding: 0;
     border: 0;
     border-top: 1px solid hsl(0, 0%, 86%);
-    width: 80%;
+    width: 82%;
     position: absolute;
     margin-top: 32.5px;
 }
@@ -49,16 +49,29 @@ hr {
 }
 
 @media only screen and (min-width: 768px) {
+    form {
+        display: flex;
+        justify-content: left;
+    }
+
     .submit-wrapper {
         display: flex;
         flex-direction: row-reverse;
-        /* margin-left: 10px; */
     }
     hr {
         margin-top: 12px;
-        width: 84%;
+        width: 59%;
+    }
+
+    .submit-arrow {
+        width: 35px;
+        height: 35px;
     }
     .submit-arrow:hover {
         background-color: hsl(0, 0%, 8%);
+    }
+    .age-wrapper > p {
+        font-size: 78px;
+        margin: -25px 0px -25px 0px;
     }
 }
