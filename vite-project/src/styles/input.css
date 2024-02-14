@@ -1,5 +1,5 @@
 .input-div {
-    width: 31%;
+    width: 28%;
     display: flex;
     flex-direction: column;
 }
@@ -9,13 +9,13 @@
     letter-spacing: 2px;
 }
 .input-entry {
-    width: 78%;
     font-size: 16px;
-    padding: 10px 20px 10px 20px;
-    margin: 0;
+    padding: 10px 20px;
+    margin-top: 5px;
     border: solid 1px hsl(0, 0%, 86%);
     border-radius: 8px;
     outline: none;
+    caret-color: hsl(259, 100%, 65%);
 }
 .label-error {
     color: hsl(0, 100%, 67%);
@@ -34,18 +34,13 @@
         width: 22%;
         margin-right: 30px;
     }
-    .input-label {
+    .input-label, .text-error {
         font-size: 12px;
     }
     .input-entry {
         font-size: 28px;
-        margin-top: 5px;
-        caret-color: hsl(259, 100%, 65%);
     }
-    .input-entry:focus {
+    .input-entry:hover {
         border: solid 1px hsl(259, 100%, 65%);
-    }
-    .text-error {
-        font-size: 12px;
     }
 }
