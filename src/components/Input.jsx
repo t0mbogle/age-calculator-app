@@ -8,12 +8,12 @@ function Input({ label, name, placeholder, length, onChange, alert }) {
         <div className="input-div">
           <label
             className={alert.hasError ? "input-label label-error" : "input-label"} 
-            htmlFor={name + "-input"}>
+            htmlFor={name}>
               {label}
           </label>
           <input 
             className={alert.hasError ? "input-entry input-error" : "input-entry"} 
-            type="datetime" autoComplete="off" name={name} placeholder={placeholder} maxLength={length} onChange={onChange}
+            id={name} name={name} type="datetime" autoComplete="off" placeholder={placeholder} maxLength={length} onChange={onChange}
           />
           {alert.hasError && <p className="text-error">{error}</p>}
         </div>
