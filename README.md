@@ -1,4 +1,8 @@
-# React + Vite
+# Frontend Mentor - Age Calculator App
+
+Challenge, specifications and figma designs can be found here 👉 [Frontend Mentor](https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q)
+
+## React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
